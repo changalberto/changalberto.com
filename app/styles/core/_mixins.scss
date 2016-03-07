@@ -1,0 +1,41 @@
+%justify {
+  // Distrubte Content Evenly
+  font-size: 0.1px;
+  text-align: justify;
+
+  &:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+// http://css-tricks.com/centering-in-the-unknown/
+@mixin vertical-align($element: '.v-center'){
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.280em; /* Adjusts for spacing */
+  }
+  > #{$element} {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  }
+  @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
